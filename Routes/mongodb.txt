@@ -1,0 +1,39 @@
+ 
+     MONGO DB: Used to store large amount of data permanantly.
+
+1. Difference between SQL and MongoDB
+
+            SQL                                          MongoDB
+-------------------------------                     -----------------------------
+- Relational DBMS                                    -Document Oriented NoSQL DB
+- Data stored in Table with row & column             - Collection of JSON Documents
+- Uses fixed schema                                  - use dynamic schema 
+-used to optimise complex join and transaction       - optimised for scalability and performance
+-support rich set of datatypes                       - limited set of data types 
+-ACID (Atomicity, consistency, isolation and         - NoSQL based on CAP (consistency, availability and partition tolerance property)
+durability)
+- Declarative query language                         - Expressive query language based on JSON
+- uses Traditional bussiness application             - used in big data and real time web application
+
+
+2.Commands in MongoDB
+  -show database- to show all databases
+  -use folder-name: to switch control to a folder
+  -show collectios: to show all collectios
+  -find(): to get all Documents from a Collection
+  -find(condition): to get all documents which satisfy the condition
+  -findOne()
+  -limit()
+  -sort()
+  -insertMany()
+  -insertOne()
+  -countDocuments()
+  -Querying Commands
+     -$gt / $gte / $lt / $lte
+     -$and / $or 
+     -$eq / $name
+     -$exists
+     -$expr
+3. Mongoose: MongoDB ODM (Object Database Modelling)
+  - Used to translate the code and its representation from MongoDB to the Node JS server
+  -
