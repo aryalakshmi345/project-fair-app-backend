@@ -1,4 +1,5 @@
 const users = require('../Models/userSchema')
+const jwt = require('jsonwebtoken')
 
 // register
 exports.register = async(req, res)=>{
@@ -25,13 +26,16 @@ exports.register = async(req, res)=>{
 
 exports.login = async(req,res)=>{
     console.log('inside login function');
-    const {username,password}= req.body
+    const {email,password}= req.body
     try{
-      const currentUser = await  users.findOne({username,password})
-      if(currentUser){
-        res.status(200).json("succesfully login")
+      const existingUser = await  users.findOne({email,password})
+      if(existingUser){
+        const token = jwt.sign({userId:existingUser._id},"supersecretkey12345")
+        res.status(200).json({
+            existingUser,token
+        })
       }else{
-        res.status(406).json("incorrect username or password")
+        res.status(404).json("Incorrect email or password")
       } 
     }
     catch(err){
